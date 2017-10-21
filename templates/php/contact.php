@@ -39,11 +39,11 @@ if(get_magic_quotes_gpc()) {
 // Example $address = "joe.doe@yourdomain.com";
 
 //$address = "example@example.net";
-$address = "anantabose29@gmail.com";
+$address = "pvl77426@gmail.com";
 
 
 // Configuration option.
-// i.e. The standard subject will appear as, "You've been contacted by John Doe."
+// i.e. The standard subject will appear as, "You've been contacted by Eric Le."
 
 // Example, $e_subject = '$name . ' has contacted you via Your Website.';
 
