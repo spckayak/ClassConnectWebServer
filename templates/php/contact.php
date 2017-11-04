@@ -4,7 +4,7 @@ if(isset($_POST['email'])) {
 
     $email_to = "phong.le.742@my.csun.edu";
     $email_subject = "from classconnect";
- 
+}
     function died($error) {
         // your error code can go here
         echo "We are very sorry, but there were error(s) found with the form you submitted. ";
@@ -18,8 +18,8 @@ if(isset($_POST['email'])) {
     // validation expected data exists
     if(	!isset($_POST['name']) ||
         !isset($_POST['email']) ||
-        !isset($_POST['comments']) ||
-        died('We are sorry, but there appears to be a problem with the form you submitted.');       
+        !isset($_POST['comments'])) {
+        died('We are sorry, but there appears to be a problem with the form you submitted.');    
     }
  
      
@@ -69,4 +69,3 @@ $headers = 'From: '.$email_from."\r\n".
 'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $email_message, $headers);  
 ?>
- 
