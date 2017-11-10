@@ -7,7 +7,7 @@ app.debug = True
 def index():
     return render_template('index.html')
 
-@app.route('/trigger', methods=['POST']) #This will be used for Jenkins
+@app.route('/trigger', methods=['POST']) #Plan to use this for Jenkins
 def trigger():
 	if (request.data): #If a json object was recieved
 		req_data = request.get_json()
