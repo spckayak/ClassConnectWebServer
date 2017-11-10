@@ -29,7 +29,6 @@ def trigger():
 @app.route('/gitwebhook', methods=['POST'])
 def webhook():
 	req_data = request.get_json()
-	pullCmd="git clone https://08da1b41be17100cdad1948276feb081a2d1aabd@github.com/spckayak/ClassConnectWebServer.git"
-	os.system("cd /home/ubuntu")
-	os.system(pullCmd)
+	os.chdir("/CICD")
+	os.system("./gitPull.sh)
 	return("OK")
