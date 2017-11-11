@@ -30,5 +30,5 @@ def trigger():
 def webhook():
 	req_data = request.get_json()
 	os.chdir("/CICD")
-	os.system("./gitPull.sh)
+	os.system("./gitPull.sh")
 	return("OK")
