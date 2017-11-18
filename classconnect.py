@@ -7,6 +7,10 @@ app.debug = True
 def index():
     return render_template('index.html')
 
+@app.route("/login.html")
+def login():
+    return render_template('login.html')
+
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
 def trigger():
 	if (request.data): #If a json object was recieved
