@@ -49,7 +49,25 @@ h5 {
 .btn-large {
 	padding: 15px 40px;
 }
-
+.dl {
+	background-color: #3bc492;
+	color: #fff;
+	font-size: 13px;
+	font-weight: 600;
+	border: 0;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	display: inline-block;
+	text-transform: uppercase;
+}
+.dl:hover, .dl:focus {
+	background-color: #3d3d3d;
+	color: #fff;
+}
+.btn-large {
+	padding: 15px 30px;
+}
 /* ------------------------------------------------------------------------------
 	Global Styles
 -------------------------------------------------------------------------------*/
@@ -307,12 +325,13 @@ ul li {
 	padding-top: 22%;
 }
 .banner-text h1 {
-	color: #fff;
+	color: black;
 	font-family: "Open Sans", Arial, sans-serif;
 	font-size: 65px;
 	font-weight: 700;
 	text-transform: uppercase;
 }
+
 .banner-text p {
 	color: rgba(255, 255, 255, 0.60);
 	font-size: 16px;
@@ -418,6 +437,10 @@ ul li {
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 }
+/* ------------------------------------------------------------------------------
+	 Download
+-------------------------------------------------------------------------------*/
+
 /* ------------------------------------------------------------------------------
 	 Teams
 -------------------------------------------------------------------------------*/
@@ -549,7 +572,7 @@ ul li {
 	background: #3bc492;
 	color: #fff;
 	margin-top: 30px;
-padding:15px 30px 15px 30px;
+	padding:15px 30px 15px 30px;
 	font-size: 13px;
 	font-weight: 600;
 	letter-spacing: 5px;
