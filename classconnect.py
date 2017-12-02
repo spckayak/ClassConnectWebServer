@@ -3,6 +3,11 @@ import os, mysql.connector, vars
 app = Flask(__name__)
 app.debug = True
 
+config =  {'user':'','password':'','host':'','database':'StudentLogin'}
+config['user']=vars.user
+config['password']=vars.password
+config['host']=vars.host
+
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -13,14 +18,10 @@ def login():
 
 @app.route("/loginSubmit")
 def loginSubmit():
-	config =  {'user':'','password':'','host':'','database':'StudentLogin'}
-	config['user']=vars.user
-	config['password']=vars.password
-	config['host']=vars.host
 	try:
 		connection = mysql.connector.connect(config)
 		cursor = connection.cursor()
-		loginSubmit = (cursor.execute("SHOW TABLES;"))
+		loginSubmit = (cursor.execute("SHOW TABLES"))
 		
 		##loginInfo = request.form['projectPath']
 	except mysql.connector.Error as err:
