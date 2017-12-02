@@ -14,7 +14,6 @@ def login():
 @app.route('/dashboard.html', methods=['POST'])
 def handle_data():
 	projectpath = request.form['username']
-	reurn render_template('dashboard.html')
 
 @app.route("/loginSubmit")
 def loginSubmit():
