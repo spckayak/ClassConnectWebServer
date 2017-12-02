@@ -15,6 +15,9 @@ def login():
 def loginSubmit():
 	try:
 		connection = mysql.connector.connect(user=vars.user, password=vars.password, host=vars.host, database='StudentLogin')
+		cursor = connection.cursor()
+		loginSubmit = (cursor.execute("SHOW TABLES;"))
+		
 		##loginInfo = request.form['projectPath']
 	except mysql.connector.Error as err:
 		if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -23,9 +26,7 @@ def loginSubmit():
 			print("Database does not exist")
 		else:
     			return(err)
-	else:
-  		cnx.close()
-	loginSubmit =("DB Connection Succesfull")
+  	connection.close()
 	return (loginSubmit)
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
