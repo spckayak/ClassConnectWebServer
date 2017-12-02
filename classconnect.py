@@ -14,7 +14,7 @@ def login():
 @app.route("/loginSubmit")
 def loginSubmit():
 	try:
-		connection = mysql.connector.connect(user=vars.user, password=vars.password, host=vars.host, database='StudentLogin')
+		connection = mysql.connector.connect(user='vars.user', password='vars.password', host='vars.host', database='StudentLogin')
 		cursor = connection.cursor()
 		loginSubmit = (cursor.execute("SHOW TABLES;"))
 		
