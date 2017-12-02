@@ -14,7 +14,7 @@ def login():
 @app.route("/loginSubmit")
 def loginSubmit():
 	try:
-		connection = mysql.connector.connect(user=databuser, password=databpassword, host=databhost, database='StudentLogin')
+		connection = mysql.connector.connect(user=vars.user, password=vars.password, host=vars.host, database='StudentLogin')
 		#loginInfo = request.form['projectPath']
 	except mysql.connector.Error as err:
 		if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
