@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import os, mysql.connector
+import os, mysql.connector, vars
 app = Flask(__name__)
 app.debug = True
 
@@ -14,7 +14,7 @@ def login():
 @app.route("/loginSubmit")
 def loginSubmit():
 	try:
-		connection = mysql.connector.connect(user='', password='', host='', database='')
+		connection = mysql.connector.connect(user=datab.user, password=datab.password, host='datab.host', database='StudentLogin')
 		#loginInfo = request.form['projectPath']
 	except mysql.connector.Error as err:
 		return("Error Occured")
