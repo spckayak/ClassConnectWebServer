@@ -13,8 +13,12 @@ def login():
 
 @app.route("/loginSubmit")
 def loginSubmit():
+	config =  {'user':'','password':'','host':'','database':'StudentLogin'}
+	config['user']=vars.user
+	config['password']=vars.password
+	config['host']=vars.host
 	try:
-		connection = mysql.connector.connect(user='vars.user', password='vars.password', host='vars.host', database='StudentLogin')
+		connection = mysql.connector.connect(config)
 		cursor = connection.cursor()
 		loginSubmit = (cursor.execute("SHOW TABLES;"))
 		
