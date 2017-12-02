@@ -11,7 +11,7 @@ def index():
 def login():
     return render_template('login.html')
 
-@app.route("/dashboard.html", methods=['POST'])
+@app.route('/dashboard.html', methods=['POST'])
 def handle_data():
 	projectpath = request.form['userlogin']
 
