@@ -13,7 +13,7 @@ def login():
 
 @app.route("/dashboard.html", methods=['POST'])
 def handle_data():
-	projectpath = request.form['username']
+	projectpath = request.form['userlogin']
 
 @app.route("/loginSubmit")
 def loginSubmit():
