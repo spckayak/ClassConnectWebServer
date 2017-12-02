@@ -15,7 +15,7 @@ def login():
 def loginSubmit():
 	try:
 		connection = mysql.connector.connect(user=vars.user, password=vars.password, host=vars.host, database='StudentLogin')
-		#loginInfo = request.form['projectPath']
+		##loginInfo = request.form['projectPath']
 	except mysql.connector.Error as err:
 		if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
 			print("Something is wrong with your user name or password")
