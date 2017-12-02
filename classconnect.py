@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import os
+import os, mysql.connector
 app = Flask(__name__)
 app.debug = True
 
@@ -10,6 +10,24 @@ def index():
 @app.route("/login.html")
 def login():
     return render_template('login.html')
+
+@app.route("/loginSubmit")
+def loginSubmit():
+	try:
+		connection = mysql.connector.connect(user='', password='', host='', database='')
+		#loginInfo = request.form['projectPath']
+	except mysql.connector.Error as err:
+		return("Error Occured")
+	#	if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+	#		print("Something is wrong with your user name or password")
+	#	elif err.errno == errorcode.ER_BAD_DB_ERROR:
+	#		print("Database does not exist")
+	#	else:
+    	#		print(err)
+	#else:
+  	#	cnx.close()
+	loginSubmit =("DB Connection Succesfull") + loginSubmit 
+	return (loginSubmit)
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
 def trigger():
