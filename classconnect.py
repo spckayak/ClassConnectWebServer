@@ -17,16 +17,15 @@ def loginSubmit():
 		connection = mysql.connector.connect(user=datab.user, password=datab.password, host='datab.host', database='StudentLogin')
 		#loginInfo = request.form['projectPath']
 	except mysql.connector.Error as err:
-		return("Error Occured")
-	#	if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-	#		print("Something is wrong with your user name or password")
-	#	elif err.errno == errorcode.ER_BAD_DB_ERROR:
-	#		print("Database does not exist")
-	#	else:
-    	#		print(err)
-	#else:
-  	#	cnx.close()
-	loginSubmit =("DB Connection Succesfull") + loginSubmit 
+		if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+			print("Something is wrong with your user name or password")
+		elif err.errno == errorcode.ER_BAD_DB_ERROR:
+			print("Database does not exist")
+		else:
+    			return(err)
+	else:
+  		cnx.close()
+	loginSubmit =("DB Connection Succesfull")
 	return (loginSubmit)
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
