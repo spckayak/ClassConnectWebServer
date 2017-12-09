@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import os, mysql.connector, vars
+import os, MySQLdb, vars
 app = Flask(__name__)
 app.debug = True
 
@@ -46,25 +46,18 @@ def dashboard():
 @app.route("/loginSubmit", methods=['POST'])
 def loginSubmit():
 
-	config =  {'user':'','password':'','host':'','database':'StudentLogin'}
+	config =  {'user':'','passwd':'','host':'','db':'StudentLogin'}
 	config['user']=vars.user
 	config['password']=vars.password
 	config['host']=vars.host	
 	#username = request.form.get('username', None)
 	#username = request.form.get('password', None)
-	try:
-		connection = mysql.connector.connect(**config)
-		cursor = connection.cursor(buffered=True)
-		msg = (cursor.execute("SHOW TABLES"))
-		connection.close()
-	except mysql.connector.Error as err:
-		if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-			msg = "Something is wrong with your user name or password"
-		elif err.errno == errorcode.ER_BAD_DB_ERROR:
-			msg = "Database does not exist"
-		else:
-    			msg = err
-	return (msg)
+	db = MySQLdb.connect(config)
+	cursor = db.cursor()
+	cursor.execute("SELECT VERSION()")
+	data = cursor.fetchall()
+	db.close()
+	return (data)
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
 def trigger():
