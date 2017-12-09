@@ -16,6 +16,10 @@ def index():
 def login():
     return render_template('login.html')
 
+@app.route("/dashboard.html")
+def dashboard():
+    return render_template('dashboard.html')
+
 @app.route("/loginSubmit")
 def loginSubmit():
 	try:
