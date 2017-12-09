@@ -1,7 +1,16 @@
 <!doctype html>
 
 <html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 | Simple Tables</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  </head>
 
 <head>
 <meta charset="utf-8">
@@ -16,6 +25,13 @@
 <link rel="stylesheet" href="../static/css/font-icon.css">
 <link rel="stylesheet" href="../static/css/animate.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../static/css/ion/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="../static/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="../static/css/_all-skins.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body>
@@ -41,7 +57,80 @@
 
   </div class="container">
   <div>
-    <p>ClassConnect</p>
+    
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title">Today Absent</h3>
+              </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="box">
+              <div class="box-header">
+                <h3 class="box-title">Manual Input</h3>
+  
+                <div class="box-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+  
+                    <div class="input-group-btn">
+                      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                  <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Reason</th>
+                  </tr>
+                  <tr>
+                    <td>183</td>
+                    <td>John Doe</td>
+                    <td>11-7-2017</td>
+                    <td><span class="label label-success">Approved</span></td>
+                    <td>Late beasue of traffic.</td>
+                  </tr>
+                  <tr>
+                    <td>219</td>
+                    <td>Alexander Pierce</td>
+                    <td>11-7-2017</td>
+                    <td><span class="label label-warning">Pending</span></td>
+                    <td>Sick.</td>
+                  </tr>
+                  <tr>
+                    <td>657</td>
+                    <td>Bob Doe</td>
+                    <td>11-7-2017</td>
+                    <td><span class="label label-primary">Approved</span></td>
+                    <td>Was Stuck in a long line .</td>
+                  </tr>
+                  <tr>
+                    <td>175</td>
+                    <td>Mike Doe</td>
+                    <td>11-7-2017</td>
+                    <td><span class="label label-danger">Denied</span></td>
+                    <td>Sleeping.</td>
+                  </tr>
+                </table>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+          </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
   </div>
 
 
