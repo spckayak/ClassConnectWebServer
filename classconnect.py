@@ -53,19 +53,17 @@ def loginSubmit():
 	username = request.form.get('username', None)
 	password = request.form['password']
 	try:
-		connection = mysql.connector.connect(config)
-		cursor = connection.cursor()
-		loginSubmit = (cursor.execute("SHOW TABLES"))
-		
-		##loginInfo = request.form['projectPath']
+		connection = mysql.connector.connect(**config)
+		cursor = connection.cursor(buffered=True)
+		msg = (cursor.execute("SHOW TABLES"))
+		connection.close()
 	except mysql.connector.Error as err:
 		if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-			print("Something is wrong with your user name or password")
+			msg = "Something is wrong with your user name or password")
 		elif err.errno == errorcode.ER_BAD_DB_ERROR:
 			print("Database does not exist")
 		else:
-    			return(err)
-  	connection.close()
+    			msg = err
 	return (password)
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
