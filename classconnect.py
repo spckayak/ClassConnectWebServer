@@ -48,8 +48,10 @@ def dashboardstudent():
 def dashboard():
     return render_template('dashboard.html')
 
-@app.route("/loginSubmit")
+@app.route("/loginSubmit", methods=['POST'])
 def loginSubmit():
+	username = request.form['username']
+	password = request.form['password']
 	try:
 		connection = mysql.connector.connect(config)
 		cursor = connection.cursor()
@@ -64,7 +66,7 @@ def loginSubmit():
 		else:
     			return(err)
   	connection.close()
-	return (loginSubmit)
+	return (username)
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
 def trigger():
