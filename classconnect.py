@@ -3,11 +3,6 @@ import os, mysql.connector, vars
 app = Flask(__name__)
 app.debug = True
 
-config =  {'user':'','password':'','host':'','database':'StudentLogin'}
-config['user']=vars.user
-config['password']=vars.password
-config['host']=vars.host
-
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -50,6 +45,11 @@ def dashboard():
 
 @app.route("/loginSubmit", methods=['POST'])
 def loginSubmit():
+
+	config =  {'user':'','password':'','host':'','database':'StudentLogin'}
+	config['user']=vars.user
+	config['password']=vars.password
+	config['host']=vars.host	
 	#username = request.form.get('username', None)
 	#username = request.form.get('password', None)
 	try:
@@ -64,7 +64,7 @@ def loginSubmit():
 			msg = "Database does not exist"
 		else:
     			msg = err
-	return (password)
+	return (msg)
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
 def trigger():
