@@ -51,22 +51,22 @@ def dashboard():
 @app.route("/loginSubmit", methods=['POST'])
 def loginSubmit():
 	username = request.form.get('username', None)
-	#password = request.form['password']
-	#try:
-	#	connection = mysql.connector.connect(config)
-	#	cursor = connection.cursor()
-	#	loginSubmit = (cursor.execute("SHOW TABLES"))
+	password = request.form['password']
+	try:
+		connection = mysql.connector.connect(config)
+		cursor = connection.cursor()
+		loginSubmit = (cursor.execute("SHOW TABLES"))
 		
 		##loginInfo = request.form['projectPath']
-	#except mysql.connector.Error as err:
-	#	if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-	#		print("Something is wrong with your user name or password")
-	#	elif err.errno == errorcode.ER_BAD_DB_ERROR:
-	#		print("Database does not exist")
-	#	else:
-    	#		return(err)
-  	#connection.close()
-	return (username)
+	except mysql.connector.Error as err:
+		if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+			print("Something is wrong with your user name or password")
+		elif err.errno == errorcode.ER_BAD_DB_ERROR:
+			print("Database does not exist")
+		else:
+    			return(err)
+  	connection.close()
+	return (password)
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
 def trigger():
