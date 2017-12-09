@@ -46,10 +46,7 @@ def dashboard():
 @app.route("/loginSubmit", methods=['POST'])
 def loginSubmit():
 
-	config =  {'user':'','passwd':'','host':'','db':'StudentLogin'}
-	config['user']=vars.user
-	config['password']=vars.password
-	config['host']=vars.host	
+	config = "'user':'%s','passwd':'%s','host':'%s','db':'StudentLogin'" % (vars.user, vars.password, vars.host)
 	#username = request.form.get('username', None)
 	#username = request.form.get('password', None)
 	db = MySQLdb.connect(config)
