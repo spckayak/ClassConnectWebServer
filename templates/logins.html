@@ -24,7 +24,7 @@
 			<div class="box-header">
 				<h2>Student-Log In</h2>
 			</div>
-				<form action="dashboardstudent.html" method="post">
+				<form action="{{ url_for('loginSubmits') }}" method="post">
 				<label for="username">Username</label>
 					<br/>
 						<input type="text" id="username" name="username">
