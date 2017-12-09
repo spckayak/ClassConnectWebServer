@@ -50,8 +50,8 @@ def dashboard():
 
 @app.route("/loginSubmit", methods=['POST'])
 def loginSubmit():
-	username = request.form.get('username', None)
-	password = request.form['password']
+	#username = request.form.get('username', None)
+	#username = request.form.get('password', None)
 	try:
 		connection = mysql.connector.connect(**config)
 		cursor = connection.cursor(buffered=True)
