@@ -59,9 +59,9 @@ def loginSubmit():
 		connection.close()
 	except mysql.connector.Error as err:
 		if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-			msg = "Something is wrong with your user name or password")
+			msg = "Something is wrong with your user name or password"
 		elif err.errno == errorcode.ER_BAD_DB_ERROR:
-			print("Database does not exist")
+			msg = "Database does not exist"
 		else:
     			msg = err
 	return (password)
