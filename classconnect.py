@@ -17,7 +17,7 @@ def login():
     return render_template('login.html')
 
 @app.route("/dashboardstudent.html")
-def login():
+def dashboardstudent():
     return render_template('dashboardstudent.html')
 
 @app.route("/dashboard.html")
