@@ -20,6 +20,26 @@ def login():
 def logins():
     return render_template('logins.html')
 
+@app.route("/courses.html")
+def courses():
+    return render_template('courses.html')
+
+@app.route("/task.html")
+def task():
+    return render_template('task.html')
+
+@app.route("/analys.html")
+def analys():
+    return render_template('analys.html')
+
+@app.route("/inbox.html")
+def inbox():
+    return render_template('inbox.html')
+
+@app.route("/manual.html")
+def manual():
+    return render_template('manual.html')
+
 @app.route("/dashboardstudent.html")
 def dashboardstudent():
     return render_template('dashboardstudent.html')
