@@ -12,10 +12,6 @@ config['host']=vars.host
 def index():
     return render_template('index.html')
 
-@app.route("/login.html")
-def login():
-    return render_template('login.html')
-
 @app.route("/logins.html")
 def login():
     return render_template('logins.html')
