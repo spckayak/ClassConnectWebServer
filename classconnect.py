@@ -43,7 +43,7 @@ def dashboardstudent():
 def dashboard():
     return render_template('dashboard.html')
 
-@app.route("/loginSubmit", methods=['POST'])
+@app.route("/loginVerify", methods=['POST'])
 def loginSubmit():
 	config = {
 		'host':'a',
