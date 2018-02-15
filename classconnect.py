@@ -46,26 +46,29 @@ def dashboard():
 @app.route("/loginVerify", methods=['POST'])
 def loginSubmit():
 	config = {
-		'host':'a',
-		'user':'b',
-		'passwd':'c', 
-		'db':'StudentLogin' 
+			'host':'a',
+			'user':'b',
+			'passwd':'c',
+			'db':'StudentLogin'
 	}
 	config['host'] = vars.host
 	config['user'] = vars.user
 	config['passwd'] = vars.password
-
-	usernameReq = request.form.get('username', None)
-	passwordReq = request.form.get('password', None)
+#	usernameReq = request.form.get('username', None)
+#	passwordReq = request.form.get('password', None)
+	usernameReq = "sperezjr01"
+	passwordReq = "abc123"
 	db = MySQLdb.connect(**config)
 	cur = db.cursor()
-	command = "SELECT * FROM Student where Username = %s AND Password = %s" % (usernameReq, passwordReq)
+	command = "SELECT Password FROM Student where Username = '%s'" % (usernameReq)
 	cur.execute(command)
 	db.close()
-	if not cur.rowcount: #If an entry was not matched
-		return("Wrong Username or Password. Please try again")
+	if cur.rowcount: #If an entry was matched
+			print("Username has been found")
+			#Check rowcount value vs passwordReq
+			#If don't match, then passowrd incorrect
 	elif cur.rowcount:
-		return 
+			print("USERNAME was not found")
 
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
