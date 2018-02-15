@@ -8,7 +8,7 @@ config = {
 }
 config['host'] = vars.host
 config['user'] = vars.user
-config['password'] = vars.password
+config['passwd'] = vars.password
 
 #username = request.form.get('username', None)
 #username = request.form.get('password', None)
