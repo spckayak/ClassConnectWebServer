@@ -14,7 +14,7 @@ config['passwd'] = vars.password
 #username = request.form.get('password', None)
 db = MySQLdb.connect(**config)
 cur = db.cursor()
-cur.execute("SELECT * FROM Student")
+cur.execute("DESCRIBE Student")
 for row in cur.fetchall() :
     print row[0]
 db.close()
