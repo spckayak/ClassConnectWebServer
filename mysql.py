@@ -1,5 +1,5 @@
-import os, mysql.connector, vars
-
+import os, vars
+import mysql.connector
 config = {
 	'host':'a',
 	'user':'b',
