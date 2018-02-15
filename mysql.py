@@ -1,5 +1,5 @@
 import os, vars
-import mysql.connector
+import MySQLdb
 config = {
 	'host':'a',
 	'user':'b',
@@ -15,7 +15,7 @@ print config['user']
 print config['password']
 #username = request.form.get('username', None)
 #username = request.form.get('password', None)
-db = mysql.connector.connect(**config)
+db = MySQLdb.connect(**config)
 cursor = db.cursor()
 cursor.execute("SELECT VERSION()")
 for row in cursor.fetchall() :
