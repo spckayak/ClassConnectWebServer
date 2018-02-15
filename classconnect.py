@@ -46,16 +46,16 @@ def dashboard():
 @app.route("/loginVerify", methods=['POST'])
 def loginSubmit():
 	config = {
-					'host':'a',
-					'user':'b',
-					'passwd':'c',
-					'db':'StudentLogin'
+				'host':'a',
+				'user':'b',
+				'passwd':'c',
+				'db':'StudentLogin'
 	}
 	config['host'] = vars.host
 	config['user'] = vars.user
 	config['passwd'] = vars.password
-	#usernameReq = request.form.get('username', None)
-	#passwordReq = request.form.get('password', None)
+	usernameReq = request.form['username']
+	passwordReq = request.form['password']
 	usernameReq = "sperezjr01"
 	passwordReq = "ab123"
 	db = MySQLdb.connect(**config)
@@ -71,8 +71,6 @@ def loginSubmit():
 							print("OK")
 	else:
 					print("USERNAME was not found")
-
-
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
 def trigger():
