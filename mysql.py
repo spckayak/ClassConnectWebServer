@@ -3,7 +3,7 @@ import MySQLdb
 config = {
 	'host':'a',
 	'user':'b',
-	'password':'c', 
+	'passwd':'c', 
 	'db':'StudentLogin' 
 }
 config['host'] = vars.host
