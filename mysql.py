@@ -12,9 +12,9 @@ config['passwd'] = vars.password
 
 #username = request.form.get('username', None)
 #username = request.form.get('password', None)
-db = MySQLdb.connect(**config)
-cursor = db.cursor()
-cursor.execute("SELECT VERSION()")
-for row in cursor.fetchall() :
-    print row[0], " ", row[1]
+db = MySQLdb.connect(config)
+cur = db.cursor()
+cur.execute("SELECT * FROM Student")
+for row in cur.fetchall() :
+    print row[0]
 db.close()
