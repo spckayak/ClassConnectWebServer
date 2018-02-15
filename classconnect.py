@@ -65,7 +65,7 @@ def loginSubmit():
 	result= cur.fetchone()
 	db.close()
 	if cur.rowcount: #If an entry was matched
-		if passwordReq != result[0]:
+		if passwordReq == result[0]:
 			return redirect(url_for('index.html'))
 	return render_template('login.html')
 
