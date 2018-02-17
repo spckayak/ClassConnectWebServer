@@ -1,4 +1,4 @@
-from flask import Flask, url_for, render_template, request, redirect
+from flask import *
 import os, MySQLdb, vars
 app = Flask(__name__)
 app.debug = True
