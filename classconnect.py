@@ -28,7 +28,7 @@ def analys():
     return render_template('analys.html')
 	
 @app.route("/testLogin")
-def analys():
+def testLogin():
     return render_template('testLogin.html')
 
 @app.route("/inbox.html")
