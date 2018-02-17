@@ -58,8 +58,8 @@ def loginSubmit():
 	config['host'] = vars.host
 	config['user'] = vars.user
 	config['passwd'] = vars.password
-	usernameReq = request.form.get['username']
-	passwordReq = request.form.get['password']
+	usernameReq = request.form['username']
+	passwordReq = request.form['password']
 	db = MySQLdb.connect(**config)
 	cur = db.cursor()
 	command = "SELECT Password FROM Student where Username = '%s'" % (usernameReq)
