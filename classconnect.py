@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, redirect, url_for render_template, request
 import os, MySQLdb, vars
 app = Flask(__name__)
 app.debug = True
@@ -67,7 +67,7 @@ def loginSubmit():
 	result= cur.fetchone()
 	db.close()
 	if cur.rowcount and passwordReq == result[0]: #If an entry was recieved, and the password matched
-		return redirect('index.html')
+		return redirect(url_for('index.html'))
 	return render_template('login.html')
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
