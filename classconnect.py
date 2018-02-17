@@ -68,7 +68,8 @@ def loginSubmit():
 	db.close()
 	if cur.rowcount and passwordReq == result[0]: #If an entry was recieved, and the password matched
 		return redirect(url_for('/'))
-	return render_template('login.html')
+	else:
+		return render_template('login.html')
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
 def trigger():
