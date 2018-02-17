@@ -67,7 +67,7 @@ def loginSubmit():
 	result= cur.fetchone()
 	db.close()
 	if cur.rowcount and passwordReq == result[0]: #If an entry was recieved, and the password matched
-		return render_template('/')
+		return render_template('courses.html')
 	else:
 		return render_template('login.html')
 
