@@ -29,7 +29,7 @@ def analys():
 	
 @app.route("/testLogin")
 def analys():
-    return render_template('testLogin')
+    return render_template('testLogin.html')
 
 @app.route("/inbox.html")
 def inbox():
