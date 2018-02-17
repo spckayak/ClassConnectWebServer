@@ -26,6 +26,10 @@ def task():
 @app.route("/analys.html")
 def analys():
     return render_template('analys.html')
+	
+@app.route("/testLogin")
+def analys():
+    return render_template('testLogin')
 
 @app.route("/inbox.html")
 def inbox():
