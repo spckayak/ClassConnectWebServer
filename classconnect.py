@@ -1,7 +1,9 @@
 from flask import *
 import os, MySQLdb, sys
+
 sys.path.append('/CICD')
 import vars
+
 app = Flask(__name__)
 app.debug = True
 
