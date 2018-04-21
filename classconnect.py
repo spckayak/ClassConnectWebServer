@@ -65,7 +65,7 @@ def loginSubmit():
 	if passwordReq == result[0]: #If an entry was recieved, and the password matched
 		return redirect(url_for('dashboard'))
 	else:
-		message = "Login Unsuccesfull, please try again"
+		message = "Login Unsuccessfull, please try again"
 	return render_template('login.html', message=message)
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
