@@ -24,9 +24,9 @@
 			<div class="box-header">
 				<h2>Professor-Log In</h2>
 			</div>
-				{% if message %}
+				<me {% if message %}
         				<p>{{ message }}</p>
-    				{% endif %}
+    				{% endif %} ></me>>
 
 				<form action="/loginVerify" method="post">
 				<label for="username">Username</label>
