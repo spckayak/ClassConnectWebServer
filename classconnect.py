@@ -70,10 +70,11 @@ def loginSubmit():
 	cur.execute(command)
 	result= cur.fetchone()
 	db.close()
-	if passwordReq == result[0]: #If an entry was recieved, and the password matched
-		return render_template('index.html')
-	else:
-		return render_template('login.html')
+	return result[0]
+	#if passwordReq == result[0]: #If an entry was recieved, and the password matched
+	#	redirect(url_for('index'))
+	#else:
+	#	return render_template('login.html')
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
 def trigger():
