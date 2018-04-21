@@ -15,10 +15,6 @@ def index():
 def login():
     return render_template('login.html')
 
-@app.route("/logins.html")
-def logins():
-    return render_template('logins.html')
-
 @app.route("/courses.html")
 def courses():
     return render_template('courses.html')
@@ -30,10 +26,6 @@ def task():
 @app.route("/analys.html")
 def analys():
     return render_template('analys.html')
-	
-@app.route("/testLogin")
-def testLogin():
-    return render_template('testLogin.html')
 
 @app.route("/inbox.html")
 def inbox():
