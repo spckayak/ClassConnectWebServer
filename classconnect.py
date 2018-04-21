@@ -63,7 +63,7 @@ def loginSubmit():
 	result= cur.fetchone()
 	db.close()
 	if passwordReq == result[0]: #If an entry was recieved, and the password matched
-		return redirect(url_for('index'))
+		return redirect(url_for('dashboard.html'))
 	else:
 		message = "Login Unsuccesfull, please try again"
 	return render_template('login.html', message=message)
