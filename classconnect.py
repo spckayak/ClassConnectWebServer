@@ -71,9 +71,10 @@ def loginSubmit():
 	result= cur.fetchone()
 	db.close()
 	if passwordReq == result[0]: #If an entry was recieved, and the password matched
-		redirect(url_for('index'))
+		message = "Login Succesfull" 
 	else:
-		return render_template('login.html')
+		message = "Login Unsuccesfull"
+	return render_template('login.html', message=message)
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
 def trigger():
