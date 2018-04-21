@@ -35,6 +35,9 @@ h2 {
 	font-size: 1.4em;
 	line-height: 2.8em;
 }
+h3 {
+	color:#ff0000;
+}
 
 a {
 	text-decoration: none;
@@ -54,10 +57,6 @@ p.small {
 /* Layout */
 .container {
 	margin: 0;
-}
-
-me {
-	color:#ff0000
 }
 
 .top {
