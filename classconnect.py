@@ -70,7 +70,7 @@ def loginSubmit():
 	cur.execute(command)
 	result= cur.fetchone()
 	db.close()
-	return result[0]
+	return print (result[0])
 	#if passwordReq == result[0]: #If an entry was recieved, and the password matched
 	#	redirect(url_for('index'))
 	#else:
