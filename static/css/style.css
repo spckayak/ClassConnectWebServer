@@ -55,6 +55,9 @@ p.small {
 .container {
 	margin: 0;
 }
+.message{
+	color:#ff0000
+}
 
 .top {
 	margin: 0;
