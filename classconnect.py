@@ -115,7 +115,7 @@ def accountCreate():
 	usernameReq = request.form['username']
 	passwordReq = request.form['password']
 	
-	if fname == "" or lname == "" or major == "" or email == "" or usernameReq == "" or passwordReq == "" #Make sure fields are not empty
+	if fname == "" or lname == "" or major == "" or email == "" or usernameReq == "" or passwordReq == "": #Make sure fields are not empty
 		message = "Fields cannot be empty"
 		return render_template('register.html', message=message)
 	
