@@ -15,6 +15,10 @@ def index():
 def login():
     return render_template('login.html')
 
+@app.route("/register.html")
+def register():
+    return render_template('register.html')
+
 @app.route("/courses.html")
 def courses():
     return render_template('courses.html')
@@ -83,7 +87,74 @@ def loginSubmit():
 		message = "Unexpected Error has occured"
 		return render_template('login.html', message=message)		
 		
-
+@app.route("/accountCreate", methods=['POST'])
+def accountCreate():
+	def mysqlCall(command):
+		config = {
+					'host':'a',
+					'user':'b',
+					'passwd':'c',
+					'db':'StudentLogin'
+		}
+		config['host'] = vars.host
+		config['user'] = vars.user
+		config['passwd'] = vars.password	
+	
+		db = MySQLdb.connect(**config)
+		cur = db.cursor()
+		cur.execute(command)
+		result = cur.fetchone()
+		db.close()
+		return result
+	
+	
+	fname = request.form['fname']
+	lname = request.form['lname']
+	major = request.form['Major']
+	email = request.form['Email']
+	usernameReq = request.form['username']
+	passwordReq = request.form['password']
+	
+	if fname == "" or lname == "" or major == "", or email == "" or usernameReq == "" or passwordReq == "" #Make sure fields are not empty
+		message = "Fields cannot be empty"
+		return render_template('register.html', message=message)
+	
+	request = "SELECT Email FROM Student where Email = '%s'" % (email) #Check if email already exists
+	result = mysqlCall(request)
+	
+	if not result: # Email does not exist. Procceed to check existing username
+		request = "SELECT Username FROM Student where Username = '%s'" % (usernameReq) #Check if username already exists
+		result = mysqlCall(request)
+		
+		if result: #Username exists
+			message = "Username is taken, please select a new username"
+			return render_template('register.html', message=message)
+			
+		elif not result: #Username does not exists, proceed wih account creation
+			#GET NEW SID, 
+			
+			request = "SELECT COUNT(*) FROM Student" #Get Row Count
+			result = mysqlCall(request)
+			sid = int(result[0]) + 1
+			
+			request = "INSERT INTO Student (Sid, Fname, Lname, Major, Email, Username, Password) VALUES('%s','%s','%s','%s','%s','%s','%s')" % (sid,fname,lname,major,email,usernameReq,passwordReq) 
+			result = mysqlCall(request)
+			
+			message = "Account Created!"
+			return render_template('register.html', message=message)
+			
+		else:
+			message = "Unexpected error has occured in checking account creation parameters."
+			return render_template('register.html', message=message)
+			
+	elif result[0]: #Email found, forgot username is needed
+		message = "This email already exists in our system."
+		return render_template('register.html', message=message)	
+		
+	else:	
+		message = "Unexpected error has occured in checking existing email."
+		return render_template('register.html', message=message)
+	
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
 def trigger():
 	if (request.data): #If a json object was recieved
