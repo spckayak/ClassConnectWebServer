@@ -58,7 +58,7 @@ def loginSubmit():
 	passwordReq = request.form['password']
 	
 	if usernameReq == "" or passwordReq == "": #Make sure fields are not empty
-		message = "All fields must not be empty"
+		message = "Fields cannot be empty"
 		return render_template('login.html', message=message)
 	
 	db = MySQLdb.connect(**config)
