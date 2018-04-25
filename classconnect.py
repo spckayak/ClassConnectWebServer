@@ -89,7 +89,6 @@ def loginSubmit():
 		
 @app.route("/accountCreate", methods=['POST'])
 def accountCreate():
-	from Flask import requests
 	def mysqlCall(command):
 		config = {
 					'host':'a',
