@@ -56,6 +56,11 @@ def loginSubmit():
 	config['passwd'] = vars.password
 	usernameReq = request.form['username']
 	passwordReq = request.form['password']
+	
+	if usernameReq == "" or passwordReq == "": #If an entry was recieved, and the password matched
+		message = "All fields must not be empty"
+		return render_template('login.html', message=message)
+	
 	db = MySQLdb.connect(**config)
 	cur = db.cursor()
 	command = "SELECT Password FROM Student where Username = '%s'" % (usernameReq)
