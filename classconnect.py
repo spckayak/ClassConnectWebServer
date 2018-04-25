@@ -65,13 +65,24 @@ def loginSubmit():
 	cur = db.cursor()
 	command = "SELECT Password FROM Student where Username = '%s'" % (usernameReq)
 	cur.execute(command)
-	result= cur.fetchone()
+	result = cur.fetchone()
 	db.close()
-	if passwordReq == result[0]: #If an entry was recieved, and the password matched
-		return redirect(url_for('index'))
-	else:
+	
+	if not result: #Account not found
 		message = "Login Unsuccessful, please try again"
-	return render_template('login.html', message=message)
+		return render_template('login.html', message=message)
+	
+	elif passwordReq != result[0]: #Account found, and the password does not match
+		message = "Login Unsuccessful, please try again"
+		return render_template('login.html', message=message)	
+	
+	elif passwordReq == result[0]: #Account found, and the password matched
+		return redirect(url_for('index'))
+	
+	else:
+		message = "Unexpected Error has occured"
+		return render_template('login.html', message=message)		
+		
 
 @app.route('/trigger', methods=['POST']) #For Jenkins webhook
 def trigger():
