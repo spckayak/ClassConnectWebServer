@@ -119,12 +119,12 @@ def accountCreate():
 		message = "Fields cannot be empty"
 		return render_template('register.html', message=message)
 	
-	request = "SELECT Email FROM Student where Email = '%s'" % (email) #Check if email already exists
-	result = mysqlCall(request)
+	syntax = "SELECT Email FROM Student where Email = '%s'" % (email) #Check if email already exists
+	result = mysqlCall(syntax)
 	
 	if not result: # Email does not exist. Procceed to check existing username
-		request = "SELECT Username FROM Student where Username = '%s'" % (usernameReq) #Check if username already exists
-		result = mysqlCall(request)
+		syntax = "SELECT Username FROM Student where Username = '%s'" % (usernameReq) #Check if username already exists
+		result = mysqlCall(syntax)
 		
 		if result: #Username exists
 			message = "Username is taken, please select a new username"
@@ -133,12 +133,12 @@ def accountCreate():
 		elif not result: #Username does not exists, proceed wih account creation
 			#GET NEW SID, 
 			
-			request = "SELECT COUNT(*) FROM Student" #Get Row Count
-			result = mysqlCall(request)
+			syntax = "SELECT COUNT(*) FROM Student" #Get Row Count
+			result = mysqlCall(syntax)
 			sid = int(result[0]) + 1
 			
-			request = "INSERT INTO Student (Sid, Fname, Lname, Major, Email, Username, Password) VALUES('%s','%s','%s','%s','%s','%s','%s')" % (sid,fname,lname,major,email,usernameReq,passwordReq) 
-			result = mysqlCall(request)
+			syntax = "INSERT INTO Student (Sid, Fname, Lname, Major, Email, Username, Password) VALUES('%s','%s','%s','%s','%s','%s','%s')" % (sid,fname,lname,major,email,usernameReq,passwordReq) 
+			result = mysqlCall(syntax)
 			
 			message = "Account Created!"
 			return render_template('register.html', message=message)
