@@ -89,12 +89,7 @@ def loginSubmit():
 		
 @app.route("/accountCreate", methods=['POST'])
 def accountCreate():
-	fname = request.form['fname']
-	lname = request.form['lname']
-	major = request.form['Major']
-	email = request.form['Email']
-	usernameReq = request.form['username']
-	passwordReq = request.form['password']
+	from Flask import requests
 	def mysqlCall(command):
 		config = {
 					'host':'a',
@@ -113,6 +108,12 @@ def accountCreate():
 		db.close()
 		return result
 	
+	fname = request.form['fname']
+	lname = request.form['lname']
+	major = request.form['Major']
+	email = request.form['Email']
+	usernameReq = request.form['username']
+	passwordReq = request.form['password']
 	if fname == "" or lname == "" or major == "" or email == "" or usernameReq == "" or passwordReq == "": #Make sure fields are not empty
 		message = "Fields cannot be empty"
 		return render_template('register.html', message=message)
