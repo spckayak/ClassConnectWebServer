@@ -57,7 +57,7 @@ def loginSubmit():
 	usernameReq = request.form['username']
 	passwordReq = request.form['password']
 	
-	if usernameReq == "" or passwordReq == "": #If an entry was recieved, and the password matched
+	if usernameReq == "" or passwordReq == "": #Make sure fields are not empty
 		message = "All fields must not be empty"
 		return render_template('login.html', message=message)
 	
