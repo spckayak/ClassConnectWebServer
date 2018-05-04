@@ -161,3 +161,12 @@ def webhook():
 	os.chdir("/CICD")
 	os.system("./gitPull.sh")
 	return("OK")
+
+if __name__ == "__main__":
+    app.secret_key = 'aBcEasyAsoNe23!'
+    app.config['SESSION_TYPE'] = 'filesystem'
+
+    sess.init_app(app)
+
+    app.debug = True
+    app.run()
