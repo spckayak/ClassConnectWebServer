@@ -28,6 +28,10 @@ def courses():
 def task():
     return render_template('task.html')
 
+@app.route("/attend.html")
+def task():
+    return render_template('attend.html')
+
 @app.route("/analys.html")
 def analys():
     return render_template('analys.html')
