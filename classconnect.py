@@ -45,7 +45,8 @@ def dashboardstudent():
 
 @app.route("/dashboard.html")
 def dashboard():
-    return render_template('dashboard.html',username=request.args.get('username'))
+    username = session['username']
+    return render_template('dashboard.html', username=username)
 
 @app.route("/loginVerify", methods=['POST'])
 def loginSubmit():
@@ -81,7 +82,8 @@ def loginSubmit():
 		return render_template('login.html', message=message)	
 	
 	elif passwordReq == result[0]: #Account found, and the password matched
-		return redirect(url_for('dashboard', username=usernameReq))
+		Session[‘username’] = usernameReq
+		return redirect(url_for('dashboard'))
 	
 	else:
 		message = "Unexpected Error has occured"
