@@ -1,4 +1,5 @@
 <!doctype html>
+{% if fname %}
 <html class="no-js" lang="">
 <head>
     <meta charset="utf-8">
@@ -63,8 +64,6 @@
     
       <section class="content">
         <h1>{{fname}}'s Dashboard</h1>
-        <h1>{{username}}'s Dashboard</h1>
-        <h1>{{sid}}'s Dashboard</h1>
         <hr>
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -87,4 +86,6 @@
 <body>
   <p></p>
 </body>
+{% endif %}
+      <h1> You are not logged in. Please use the login. <h1>
 </html>
