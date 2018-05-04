@@ -103,25 +103,7 @@ def loginSubmit():
 		return render_template('login.html', message=message)		
 		
 @app.route("/accountCreate", methods=['POST'])
-def accountCreate():
-	def mysqlCall(command):
-		config = {
-					'host':'a',
-					'user':'b',
-					'passwd':'c',
-					'db':'StudentLogin'
-		}
-		config['host'] = vars.host
-		config['user'] = vars.user
-		config['passwd'] = vars.password	
-	
-		db = MySQLdb.connect(**config)
-		cur = db.cursor()
-		cur.execute(command)
-		result = cur.fetchone()
-		db.close()
-		return result
-	
+def accountCreate():	
 	fname = request.form['fname']
 	lname = request.form['lname']
 	major = request.form['Major']
@@ -133,11 +115,39 @@ def accountCreate():
 		return render_template('register.html', message=message)
 	
 	syntax = "SELECT Email FROM Student where Email = '%s'" % (email) #Check if email already exists
-	result = mysqlCall(syntax)
+	config = {
+				'host':'a',
+				'user':'b',
+				'passwd':'c',
+				'db':'StudentLogin'
+	}
+	config['host'] = vars.host
+	config['user'] = vars.user
+	config['passwd'] = vars.password	
+
+	db = MySQLdb.connect(**config)
+	cur = db.cursor()
+	cur.execute(syntax)
+	result = cur.fetchone()
+	db.close()
 	
 	if not result: # Email does not exist. Procceed to check existing username
 		syntax = "SELECT Username FROM Student where Username = '%s'" % (usernameReq) #Check if username already exists
-		result = mysqlCall(syntax)
+		config = {
+					'host':'a',
+					'user':'b',
+					'passwd':'c',
+					'db':'StudentLogin'
+		}
+		config['host'] = vars.host
+		config['user'] = vars.user
+		config['passwd'] = vars.password	
+
+		db = MySQLdb.connect(**config)
+		cur = db.cursor()
+		cur.execute(syntax)
+		result = cur.fetchone()
+		db.close()
 		
 		if result: #Username exists
 			message = "Username is taken, please select a new username"
@@ -147,11 +157,39 @@ def accountCreate():
 			#GET NEW SID, 
 			
 			syntax = "SELECT COUNT(*) FROM Student" #Get Row Count
-			result = mysqlCall(syntax)
+			config = {
+						'host':'a',
+						'user':'b',
+						'passwd':'c',
+						'db':'StudentLogin'
+			}
+			config['host'] = vars.host
+			config['user'] = vars.user
+			config['passwd'] = vars.password	
+
+			db = MySQLdb.connect(**config)
+			cur = db.cursor()
+			cur.execute(syntax)
+			result = cur.fetchone()
+			db.close()
 			sid = int(result[0]) + 1
 			
 			syntax = "INSERT INTO Student (Sid, Fname, Lname, Major, Email, Username, Password) VALUES('%s','%s','%s','%s','%s','%s','%s')" % (sid,fname,lname,major,email,usernameReq,passwordReq) 
-			result = mysqlCall(syntax)
+			config = {
+						'host':'a',
+						'user':'b',
+						'passwd':'c',
+						'db':'StudentLogin'
+			}
+			config['host'] = vars.host
+			config['user'] = vars.user
+			config['passwd'] = vars.password	
+
+			db = MySQLdb.connect(**config)
+			cur = db.cursor()
+			cur.execute(syntax)
+			result = cur.fetchone()
+			db.close()
 			
 			message = "Account Created!"
 			return render_template('register.html', message=message)
