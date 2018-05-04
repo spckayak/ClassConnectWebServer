@@ -1,9 +1,13 @@
 <!doctype html>
-
 <html class="no-js" lang="">
-
-
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ClassConnect| Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +20,7 @@
 <link rel="stylesheet" href="../static/css/font-icon.css">
 <link rel="stylesheet" href="../static/css/animate.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../static/css/ion/css/ionicons.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="../static/css/AdminLTE.min.css">
 <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -42,41 +47,48 @@
         <a href="index.html"><h1 class="boxed_item">ClassConnect</h1></a>
       </center>
       <ul class="navigation_selection">
-        <li class="navigation_item"><a href="dashboardstudent.html" >Dashboard</a></li>
-        <li class="navigation_item"><a href="coursesstudent.html" >Courses</a></li>
-        <li class="navigation_item"><a href="attend.html" >Attend</a></li>
-        <li class="navigation_item"><a href="calendarstudent.html">Calendar</a></li>
-        <li class="navigation_item"><a href="inbox.html">Inbox</a></li>
+            <li class="navigation_item"><a href="dashboard.html" >Dashboard</a></li>
+            <li class="navigation_item"><a href="courses.html" >Courses</a></li>
+            <li class="navigation_item"><a href="attend.html" >Task/Attend</a></li>>
       </ul>
       <center>
-        <a href="index.html"><h1 class="boxed_itembox_out">
-          SIGNOUT
-        </a>
+            <a href=""><h1 class="boxed_itembox_out">
+                    LOGOUT
+            </a>
       </center>
 
-    </div class="container">
-    <div>
-      
-      <section class="content">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-red">
-                <div class="inner">
-                  <h3>CIT 480</h3>  
-                    <p>Attend 12/09/2017</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-person-add"></i>
-                </div>
-                  <a href="attends.html" class="small-box-footer">More info<i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-              </div>
-        </div>
+  </div class="container">
+  <div>
+    
+    <section class="content">
+        <h1>Attendance</h1>
+        <form action="" method="Post">
+        <table class="table1">
+            <tr>
+                <th> ID </th>
+                <th>  Student </th>
+                <th>  Attendance  </th>
+            </tr>
         
-      </section>
 
+            <tr>
+                <td> 01 </td>
+                <td> Eric Le  </td>
+                <td></td>
+                
+            </tr>
+            <tr>
+                    <td> 01 </td>
+                    <td> Eric Le  </td>
+                    <td></td>
+                    
+                </tr>
+        </table>
+        <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+        </form>   
+    </section>
+</body>
+<body>
+  <p></p>
 </body>
 </html>
