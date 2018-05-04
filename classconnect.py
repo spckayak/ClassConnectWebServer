@@ -71,7 +71,7 @@ def dashboard():
     cur.execute(syntax)
     result = cur.fetchone()
     db.close()
-    classlist= '<div class="info-box-content"><span class="info-box-text"><a href="task.html">CIT480</a></span><span class="info-box-number">16586-Fall 2017</span><span class="info-box-number">Attendance today</span></div>'
+    classlist= Markup('<div class="info-box-content"><span class="info-box-text"><a href="task.html">CIT480</a></span><span class="info-box-number">16586-Fall 2017</span><span class="info-box-number">Attendance today</span></div>')
     return render_template('dashboard.html', fname=fname, classlist=classlist)
 
 @app.route("/loginVerify", methods=['POST'])
