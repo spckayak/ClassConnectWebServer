@@ -46,7 +46,10 @@ def dashboardstudent():
 
 @app.route("/dashboard.html")
 def dashboard():
-    fname = session['fname']
+    try:	
+    	fname = session['fname']
+    else:
+	return render_template('login.html') #Direct user to login
     return render_template('dashboard.html', fname=fname)
 
 @app.route("/loginVerify", methods=['POST'])
