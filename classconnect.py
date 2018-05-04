@@ -81,7 +81,7 @@ def loginSubmit():
 		return render_template('login.html', message=message)	
 	
 	elif passwordReq == result[0]: #Account found, and the password matched
-		return redirect(url_for('dashboard', username=username))
+		return redirect(url_for('dashboard', username=usernameReq))
 	
 	else:
 		message = "Unexpected Error has occured"
