@@ -189,6 +189,7 @@ def accountCreate():
 			cur = db.cursor()
 			try:
 				cur.execute(syntax)
+				db.commit()
 				message = "Account Created!"
 			except:
 				message = "Unexpected Error"
