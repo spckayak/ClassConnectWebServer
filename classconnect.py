@@ -187,11 +187,13 @@ def accountCreate():
 
 			db = MySQLdb.connect(**config)
 			cur = db.cursor()
-			cur.execute(syntax)
+			try:
+				cur.execute(syntax)
+				message = "Account Created!"
+			except:
+				message = "Unexpected Error"
 			result = cur.fetchone()
 			db.close()
-			
-			message = result
 			return render_template('register.html', message=message)
 			
 		else:
