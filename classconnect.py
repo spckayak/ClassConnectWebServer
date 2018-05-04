@@ -71,8 +71,20 @@ def dashboard():
     cur.execute(syntax)
     result = cur.fetchone()
     db.close()
-
-    classlist= '<div class="info-box-content"><span class="info-box-text"><a href="task.html">CIT480</a></span><span class="info-box-number">16586-Fall 2017</span><span class="info-box-number">Attendance today</span></div>'
+    while result is not None:
+		cid = row[0]
+		syntax = "SELECT Name, Section, Semester, Year FROM Class where cid = '%s'" % (sid) #Get List of all classes belonging to student
+		db = MySQLdb.connect(**config)
+		cur = db.cursor()
+		cur.execute(syntax)
+		result = cur.fetchone()
+		db.close()
+		className = result[0]
+		classSect = result[1]
+		classSeme = result[2]
+		classYear = result[3]
+		insertBox = '<div class="info-box-content"><span class="info-box-text"><a href="task.html">'%s'</a></span><span class="info-box-number">'%s' - '%s' '%s' 2017</span><span class="info-box-number">Attendance today</span></div>' % (className,classSect,classSeme,classYear)
+		classlist = classlist + insertBox    
     classlist=Markup(classlist)
     return render_template('dashboard.html', fname=fname, classlist=classlist)
 
