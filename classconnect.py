@@ -48,7 +48,7 @@ def dashboardstudent():
 def dashboard():
     try:	
     	fname = session['fname']
-    else:
+    except:
 	return render_template('login.html') #Direct user to login
     return render_template('dashboard.html', fname=fname)
 
