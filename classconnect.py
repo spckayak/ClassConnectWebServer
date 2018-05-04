@@ -6,6 +6,7 @@ import vars
 
 app = Flask(__name__)
 app.debug = True
+app.secret_key = 'aBcEasyAsoNe23!'
 
 @app.route("/")
 def index():
