@@ -52,9 +52,28 @@ def dashboardstudent():
 def dashboard():
     try:	
     	fname = session['fname']
+	sid = session['sid']
     except:
 	return render_template('login.html') #Direct user to login
-    return render_template('dashboard.html', fname=fname)
+
+    config = {
+			'host':'a',
+			'user':'b',
+			'passwd':'c',
+			'db':'StudentLogin'
+    }
+    config['host'] = vars.host
+    config['user'] = vars.user
+    config['passwd'] = vars.password	
+    syntax = "SELECT cid FROM Class_Stu where sid = '%s'" % (sid) #Get List of all classes belonging to student
+    db = MySQLdb.connect(**config)
+    cur = db.cursor()
+    cur.execute(syntax)
+    result = cur.fetchone()
+    db.close()
+
+	
+    return render_template('dashboard.html', fname=fname, classlist=result)
 
 @app.route("/loginVerify", methods=['POST'])
 def loginSubmit():
