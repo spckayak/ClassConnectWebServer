@@ -46,9 +46,7 @@ def dashboardstudent():
 
 @app.route("/dashboard.html")
 def dashboard():
-    sid = session['sid']
-    fname = session['fname']
-    return render_template('dashboard.html', fname=fname, sid=sid )
+    return render_template('dashboard.html', fname=fname)
 
 @app.route("/loginVerify", methods=['POST'])
 def loginSubmit():
@@ -86,14 +84,14 @@ def loginSubmit():
 	elif passwordReq == result[0]: #Account found, and the password matched
 		db = MySQLdb.connect(**config)
 		cur = db.cursor()
-		command = "SELECT username,sid,fname FROM Student where Username = '%s'" % (usernameReq)
+		command = "SELECT sid,fname FROM Student where Username = '%s'" % (usernameReq)
 		cur.execute(command)
 		result = cur.fetchone()
 		db.close()
 		
-		session['username'] = result[0]
-		session['sid'] = result[1]
-		session['fname'] = result[2]
+		session['username'] = usernameReq
+		session['sid'] = result[0]
+		session['fname'] = result[1]
 		return redirect(url_for('dashboard'))
 	
 	else:
