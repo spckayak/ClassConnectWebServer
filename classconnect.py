@@ -29,7 +29,7 @@ def task():
     return render_template('task.html')
 
 @app.route("/attend.html")
-def task():
+def attend():
     return render_template('attend.html')
 
 @app.route("/analys.html")
@@ -71,8 +71,7 @@ def dashboard():
     cur.execute(syntax)
     result = cur.fetchone()
     db.close()
-    classlist="hi"
-    #classlist= '<div class="info-box-content"><span class="info-box-text"><a href="task.html">CIT480</a></span><span class="info-box-number">16586-Fall 2017</span><span class="info-box-number">Attendance today</span></div>'
+    classlist= '<div class="info-box-content"><span class="info-box-text"><a href="task.html">CIT480</a></span><span class="info-box-number">16586-Fall 2017</span><span class="info-box-number">Attendance today</span></div>'
     return render_template('dashboard.html', fname=fname, classlist=classlist)
 
 @app.route("/loginVerify", methods=['POST'])
