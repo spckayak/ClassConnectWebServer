@@ -82,7 +82,7 @@ def loginSubmit():
 		return render_template('login.html', message=message)	
 	
 	elif passwordReq == result[0]: #Account found, and the password matched
-		Session[‘username’] = usernameReq
+		Session['username'] = usernameReq
 		return redirect(url_for('dashboard'))
 	
 	else:
