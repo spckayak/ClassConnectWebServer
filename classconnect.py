@@ -45,7 +45,7 @@ def dashboardstudent():
 
 @app.route("/dashboard.html")
 def dashboard():
-    return render_template('dashboard.html')
+    return render_template('dashboard.html',username=request.args.get('username'))
 
 @app.route("/loginVerify", methods=['POST'])
 def loginSubmit():
