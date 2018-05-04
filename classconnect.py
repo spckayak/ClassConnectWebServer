@@ -191,7 +191,7 @@ def accountCreate():
 			result = cur.fetchone()
 			db.close()
 			
-			message = "Account Created!"
+			message = result
 			return render_template('register.html', message=message)
 			
 		else:
