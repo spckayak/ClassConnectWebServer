@@ -84,7 +84,7 @@ def dashboard():
 		classSect = response[1]
 		classSeme = response[2]
 		classYear = response[3]
-		insertBox = "<div class=\"col-md-3 col-sm-6 col-xs-12\"><div class=\"info-box-content\"><span class=\"info-box-text\"><a href=\"task.html\">%s</a></span><span class=\"info-box-number\">%s - %s %s</span></div>" % (className,classSect,classSeme,classYear)
+		insertBox = "<div class=\"col-md-3 col-sm-6 col-xs-12\"><div class=\"info-box-content\"><span class=\"info-box-text\"><a href=\"task.html\">%s</a></span><span class=\"info-box-number\">%s - %s %s</span></div></div>" % (className,classSect,classSeme,classYear)
 		classlist = classlist + insertBox
     classlist=Markup(classlist)
     return render_template('dashboard.html', fname=fname, classlist=classlist)
