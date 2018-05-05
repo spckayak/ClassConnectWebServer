@@ -72,22 +72,23 @@ def dashboard():
     result = cur.fetchone()
     db.close()
     while result is not None:
-		cid = result
+		#cid = result[0]
 		syntax = "SELECT Name, Section, Semester, Year FROM Class where cid = '%s'" % (sid) #Get List of all classes belonging to student
 		db = MySQLdb.connect(**config)
 		cur = db.cursor()
 		cur.execute(syntax)
 		result = cur.fetchone()
 		db.close()
-		className = result
-		classSect = result[1]
-		classSeme = result[2]
-		classYear = result[3]
-		insertBox = "'%s','%s','%s','%s'" % (className,classSect,classSeme,classYear)
-		classlist = " "
-		insertBox = "<div class=\"info-box-content\"><span class=\"info-box-text\"><a href=\"task.html\">'%s'</a></span><span class=\"info-box-number\">'%s' - '%s' '%s' 2017</span><span class=\"info-box-number\">Attendance today</span></div>" % (className,classSect,classSeme,classYear)
-		classlist = classlist #+ insertBox    
-    classlist=Markup(classlist)
+		return result
+		#className = result
+		#classSect = result[1]
+		#classSeme = result[2]
+		#classYear = result[3]
+		#insertBox = "'%s','%s','%s','%s'" % (className,classSect,classSeme,classYear)
+		#classlist = " "
+		#insertBox = "<div class=\"info-box-content\"><span class=\"info-box-text\"><a href=\"task.html\">'%s'</a></span><span class=\"info-box-number\">'%s' - '%s' '%s' 2017</span><span class=\"info-box-number\">Attendance today</span></div>" % (className,classSect,classSeme,classYear)
+		#classlist = classlist #+ insertBox    
+    #classlist=Markup(classlist)
     return render_template('dashboard.html', fname=fname, classlist=classlist)
 
 @app.route("/loginVerify", methods=['POST'])
