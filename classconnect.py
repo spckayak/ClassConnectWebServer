@@ -78,12 +78,12 @@ def dashboard():
 		db = MySQLdb.connect(**config)
 		cur = db.cursor()
 		cur.execute(syntax)
-		result = cur.fetchall()
+		response = cur.fetchone()
 		db.close()
-		print result[0]
-		print result[1]
-		print result[2]
-		print result[3]
+		print response[0]
+		print response[1]
+		print response[2]
+		print response[3]
 		#className = result[0]
 		#classSect = result[1]
 		#classSeme = result[2]
