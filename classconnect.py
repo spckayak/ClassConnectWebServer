@@ -72,7 +72,7 @@ def dashboard():
     result = cur.fetchone()
     db.close()
     while result is not None:
-		cid = result[0]
+		cid = result
 		syntax = "SELECT Name, Section, Semester, Year FROM Class where cid = '%s'" % (sid) #Get List of all classes belonging to student
 		db = MySQLdb.connect(**config)
 		cur = db.cursor()
