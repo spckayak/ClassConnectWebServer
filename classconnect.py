@@ -16,6 +16,20 @@ def index():
 def login():
     return render_template('login.html')
 
+@app.route("/logout")
+def logout():
+    try:	
+    	fname = session['fname']
+    except:
+	return render_template('login.html') #Direct user to login if not logged in
+    username = session['username']
+    sid = session['sid']
+    fname = session['fname']
+    session.pop('username', None)
+    session.pop('sid', None)
+    session.pop('fname', None)
+    return render_template('index.html')
+
 @app.route("/register.html")
 def register():
     return render_template('register.html')
