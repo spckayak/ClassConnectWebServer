@@ -52,7 +52,6 @@ def dashboardstudent():
 def dashboard():
     try:	
     	fname = session['fname']
-	sid = session['sid']
     except:
 	return render_template('login.html') #Direct user to login
 
@@ -65,6 +64,8 @@ def dashboard():
     config['host'] = vars.host
     config['user'] = vars.user
     config['passwd'] = vars.password	
+    sid = session['sid']
+    print "sid=" + sid
     syntax = "SELECT cid FROM Class_Stu where sid = '%s'" % (sid) #Get List of all classes belonging to student
     db = MySQLdb.connect(**config)
     cur = db.cursor()
@@ -72,14 +73,13 @@ def dashboard():
     result = cur.fetchone()
     db.close()
     while result is not None:
-		#cid = result[0]
+		cid = result[0]
 		syntax = "SELECT Name, Section, Semester, Year FROM Class where cid = '%s'" % (sid) #Get List of all classes belonging to student
 		db = MySQLdb.connect(**config)
 		cur = db.cursor()
 		cur.execute(syntax)
 		result = cur.fetchone()
 		db.close()
-		return (result)
 		#className = result
 		#classSect = result[1]
 		#classSeme = result[2]
