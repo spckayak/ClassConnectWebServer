@@ -71,6 +71,7 @@ def dashboard():
     cur.execute(syntax)
     result = cur.fetchall()
     db.close()
+    classlist = " "
     for row in result:
 		cid = row[0]
 		syntax = "SELECT Name, Section, Semester, Year FROM Class where cid = '%s'" % (cid) #Get List of all classes belonging to student
@@ -84,7 +85,6 @@ def dashboard():
 		classSeme = response[2]
 		classYear = response[3]
 		insertBox = "'%s','%s','%s','%s'" % (className,classSect,classSeme,classYear)
-		classlist = " "
 		insertBox = "<div class=\"info-box-content\"><span class=\"info-box-text\"><a href=\"task.html\">%s</a></span><span class=\"info-box-number\">%s - %s %s</span><span class=\"info-box-number\">Attendance today</span></div>" % (className,classSect,classSeme,classYear)
 		classlist = classlist + insertBox
     classlist=Markup(classlist)
