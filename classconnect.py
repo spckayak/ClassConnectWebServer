@@ -80,7 +80,8 @@ def dashboard():
 		cur.execute(syntax)
 		result = cur.fetchone()
 		db.close()
-		#className = result
+		print result
+		#className = result[0]
 		#classSect = result[1]
 		#classSeme = result[2]
 		#classYear = result[3]
