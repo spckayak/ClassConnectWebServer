@@ -80,7 +80,10 @@ def dashboard():
 		cur.execute(syntax)
 		result = cur.fetchall()
 		db.close()
-		print result
+		print result[0]
+		print result[1]
+		print result[2]
+		print result[3]
 		#className = result[0]
 		#classSect = result[1]
 		#classSeme = result[2]
