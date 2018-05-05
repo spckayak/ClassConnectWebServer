@@ -65,7 +65,6 @@ def dashboard():
     config['user'] = vars.user
     config['passwd'] = vars.password	
     sid = session['sid']
-    print sid
     syntax = "SELECT cid FROM Class_Stu where sid = '%s'" % (sid) #Get List of all classes belonging to student
     db = MySQLdb.connect(**config)
     cur = db.cursor()
@@ -74,6 +73,7 @@ def dashboard():
     db.close()
     while result is not None:
 		cid = result[0]
+		print cid
 		syntax = "SELECT Name, Section, Semester, Year FROM Class where cid = '%s'" % (sid) #Get List of all classes belonging to student
 		db = MySQLdb.connect(**config)
 		cur = db.cursor()
