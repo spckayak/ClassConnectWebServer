@@ -14,13 +14,7 @@ def index():
 
 @app.route("/login.html")
 def login():
-    try:	
-    	fname = session['fname']
-	if fname == "":
-		raise NoCreds()
-    except NoCreds:
     	return render_template('login.html')
-    return render_template('dashboard.html')
 
 @app.route("/logout")
 def logout():
