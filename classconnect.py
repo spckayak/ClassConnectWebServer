@@ -74,7 +74,7 @@ def dashboard():
     for row in result:
 		cid = row[0]
 		print cid
-		syntax = "SELECT Name, Section, Semester, Year FROM Class where cid = '%s'" % (sid) #Get List of all classes belonging to student
+		syntax = "SELECT Name, Section, Semester, Year FROM Class where cid = '%s'" % (cid) #Get List of all classes belonging to student
 		db = MySQLdb.connect(**config)
 		cur = db.cursor()
 		cur.execute(syntax)
