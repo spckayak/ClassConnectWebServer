@@ -85,9 +85,9 @@ def dashboard():
 		classYear = response[3]
 		insertBox = "'%s','%s','%s','%s'" % (className,classSect,classSeme,classYear)
 		classlist = " "
-		#insertBox = "<div class=\"info-box-content\"><span class=\"info-box-text\"><a href=\"task.html\">'%s'</a></span><span class=\"info-box-number\">'%s' - '%s' '%s' 2017</span><span class=\"info-box-number\">Attendance today</span></div>" % (className,classSect,classSeme,classYear)
-		#classlist = classlist #+ insertBox
-    #classlist=Markup(classlist)
+		insertBox = "<div class=\"info-box-content\"><span class=\"info-box-text\"><a href=\"task.html\">'%s'</a></span><span class=\"info-box-number\">'%s' - '%s' '%s' 2017</span><span class=\"info-box-number\">Attendance today</span></div>" % (className,classSect,classSeme,classYear)
+		classlist = classlist + insertBox
+    classlist=Markup(classlist)
     return render_template('dashboard.html', fname=fname, classlist=classlist)
 
 @app.route("/loginVerify", methods=['POST'])
