@@ -14,6 +14,9 @@ def index():
 
 @app.route("/login.html")
 def login():
+    try:	
+    	fname = session['fname']
+	return render_template('dashboard.html')
     return render_template('login.html')
 
 @app.route("/logout")
