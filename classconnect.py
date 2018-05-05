@@ -79,7 +79,7 @@ def dashboard():
 		cur.execute(syntax)
 		result = cur.fetchone()
 		db.close()
-		return result
+		return (result)
 		#className = result
 		#classSect = result[1]
 		#classSeme = result[2]
