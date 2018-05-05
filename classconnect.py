@@ -73,21 +73,16 @@ def dashboard():
     db.close()
     for row in result:
 		cid = row[0]
-		print cid
 		syntax = "SELECT Name, Section, Semester, Year FROM Class where cid = '%s'" % (cid) #Get List of all classes belonging to student
 		db = MySQLdb.connect(**config)
 		cur = db.cursor()
 		cur.execute(syntax)
 		response = cur.fetchone()
 		db.close()
-		print response[0]
-		print response[1]
-		print response[2]
-		print response[3]
-		#className = result[0]
-		#classSect = result[1]
-		#classSeme = result[2]
-		#classYear = result[3]
+		className = response[0]
+		classSect = response[1]
+		classSeme = response[2]
+		classYear = response[3]
 		#insertBox = "'%s','%s','%s','%s'" % (className,classSect,classSeme,classYear)
 		classlist = " "
 		#insertBox = "<div class=\"info-box-content\"><span class=\"info-box-text\"><a href=\"task.html\">'%s'</a></span><span class=\"info-box-number\">'%s' - '%s' '%s' 2017</span><span class=\"info-box-number\">Attendance today</span></div>" % (className,classSect,classSeme,classYear)
