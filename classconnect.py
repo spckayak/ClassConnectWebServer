@@ -17,8 +17,8 @@ def login():
     try:	
     	fname = session['fname']
 	if fname == "":
-		raise except
-    except:
+		raise NoCreds()
+    except NoCreds:
     	return render_template('login.html')
     return render_template('dashboard.html')
 
